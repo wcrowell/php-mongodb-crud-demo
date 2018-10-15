@@ -11,7 +11,7 @@ if(isset($_POST['Submit'])) {
 	$user = array (
 				'first_name' => $_POST['first_name'],
 				'last_name' => $_POST['last_name'],
-				'twittere' => $_POST['twitter'],
+				'twitter' => $_POST['twitter'],
 				'email' => $_POST['email']
 			);
 		
@@ -27,7 +27,7 @@ if(isset($_POST['Submit'])) {
 		echo '<span style="color:red">'.$errorMessage.'</span>';
 		echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";	
 	} else {
-		$db->users->insert($user);
+		$db->users->insertOne($user);
 		
 		echo "<font color='green'>User added successfully.";
 		echo "<br/><a href='index.php'>Main Page</a>";

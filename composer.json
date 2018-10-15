@@ -1,12 +1,5 @@
 {
-    "name": "joe.carder/php-mongodb-crud-demo",
     "require": {
-        "mongo/mongo": "^1.4"
-    },
-    "authors": [
-        {
-            "name": "Joe Carder",
-            "email": "joe.carder@roguewave.com"
-        }
-    ]
+        "mongodb/mongodb": "^1.4"
+    }
 }

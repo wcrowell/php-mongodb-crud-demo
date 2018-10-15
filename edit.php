@@ -24,11 +24,11 @@ if(isset($_POST['update']))
 		echo '<span style="color:red">'.$errorMessage.'</span>';
 		echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";	
 	} else {
-		$db->users->update(
-						array('_id' => new MongoId($id)),
-						array('$set' => $user)
-					);
-		
+		$db->users->updateOne(
+    			[ '_id' => '$id' ],
+    			[ '$set' => [ 'first_name' => 'testme' ]]
+		);
+		$db->users->updateOne(['_id' => new \MongoDB\BSON\ObjectID($id)], ['$set' => $user ]); 
 		header("Location: index.php");
 	}
 } // end if $_POST
@@ -38,7 +38,9 @@ if(isset($_POST['update']))
 $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$result = $db->users->findOne(array('_id' => new MongoId($id)));
+$result = $db->users->findOne([
+    '_id' => new MongoDB\BSON\ObjectId($id),
+]);
 
 $first_name = $result['first_name'];
 $last_name = $result['last_name'];

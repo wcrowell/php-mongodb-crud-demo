@@ -1,8 +1,11 @@
 <?php
 include_once("config.php");
+require_once __DIR__ . "/vendor/autoload.php";
 
 // select data in descending order from table/collection "users"
-$result = $db->users->find()->sort(array('_id' => -1));
+$filter  = [];
+$options = ['sort' => ['_id' => -1]];
+$result = $db->users->find($filter, $options);
 ?>
 
 <html>
