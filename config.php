@@ -14,7 +14,6 @@
  * $connectionUrl = sprintf('mongodb://%s:%d/%s', $host, $port, $database);
  * $connection = new Mongo($connectionUrl, array('username' => $username, 'password' => $password));
  */ 
-require 'vendor/autoload.php';
 $connection = new MongoDB\Client("mongodb://localhost:27017");
 
 /**
